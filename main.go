@@ -31,10 +31,10 @@ func generateSalt() string {
 
 // Hash password with the salt
 func hashPassword(plainText string, salt string) string {
-  hash := hmac.New(sha256.New, []byte(plainText))
-  io.WriteString(hash, plainText + salt)
-  hashedValue := hash.Sum(nil)
-  return hex.EncodeToString(hashedValue)
+    hash := hmac.New(sha256.New, []byte(plainText))
+    io.WriteString(hash, plainText + salt)
+    hashedValue := hash.Sum(nil)
+    return hex.EncodeToString(hashedValue)
 }
 
 // Print out results
