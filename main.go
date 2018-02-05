@@ -49,7 +49,6 @@ func printResult(salt string, password string, hashedPass string) {
 
 
 func main() {
-    // new random string that will be used as temp roop password
     password := generatePassword()
     salt := generateSalt()
     hashedPassword := hashPassword(password, salt)
