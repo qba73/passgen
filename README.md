@@ -1,21 +1,20 @@
 # passgen
-Basic secret generator in Go.
 
+`passgen` is a simple cli tool for generating secrets.
 
-### Build and install passgen package
+## Build and install passgen package
+
 ```bash
-coolabula:passgen jakub$ go build
-coolabula:passgen jakub$ go install
+go build -o passgen cmd/main.go
 ```
 
-### Usage
+## Usage
+
 Run passgen:
+
 ```bash
-coolabula:passgen jakub$ passgen
-Salt:
-DVV6bvlfln0kjqkSQY8f-cKmsGfPlRQtOH-bjS92Fb4=
-Generated password:
-b9scufik89e7c4h5u150
-Hashed password:
-8336776dd6df5a4d53e63272eb4a117fcf0d3b5a0afc7bafdf684d95e18d601e
+$ passgen
+Salt: D32pOwYBEBEB2Fp8dO2RbJ32eJ2bR0zf7bmqIjot5M8=
+Passwd: cguergcchsh1d3sc93v0
+Hashed passwd: bc2182e3c63ca4491133db609eeebeea356a1906c7256d7cb59a932ce1946476
 ```
