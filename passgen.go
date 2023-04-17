@@ -1,3 +1,4 @@
+// Package passgen provides functions for generating hashed passwords.
 package passgen
 
 import (
