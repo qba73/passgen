@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/qba73/passgen)](https://goreportcard.com/report/github.com/qba73/passgen)
+
 # passgen
 
 `passgen` is a simple cli tool for generating secrets.
