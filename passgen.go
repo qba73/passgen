@@ -39,7 +39,7 @@ func HashPassword(passwd string, salt string) string {
 	return hex.EncodeToString(hashedValue)
 }
 
-func runCLI(w io.Writer, ew io.Writer) int {
+func RunCLI(w io.Writer, ew io.Writer) int {
 	password := GeneratePassword()
 	salt, err := GenerateSalt()
 	if err != nil {
@@ -52,5 +52,5 @@ func runCLI(w io.Writer, ew io.Writer) int {
 }
 
 func Main() int {
-	return runCLI(os.Stdout, os.Stderr)
+	return RunCLI(os.Stdout, os.Stderr)
 }
