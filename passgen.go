@@ -7,6 +7,7 @@ import (
 	"crypto/sha256"
 	"encoding/base64"
 	"encoding/hex"
+	"encoding/json"
 	"fmt"
 	"io"
 	"os"
@@ -39,6 +40,23 @@ func HashPassword(passwd string, salt string) string {
 	return hex.EncodeToString(hashedValue)
 }
 
+// Password represents generated data: passwd, salt an hash.
+type Password struct {
+	Salt     string `json:"salt"`
+	Password string `json:"password"`
+	Hash     string `json:"hash"`
+}
+
+// ToJSON formats output in json string.
+func (p Password) ToJSON() string {
+	output, err := json.MarshalIndent(p, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	return string(output)
+}
+
+// RunCLI takes output and error writers and runs the program.
 func RunCLI(w io.Writer, ew io.Writer) int {
 	password := GeneratePassword()
 	salt, err := GenerateSalt()
@@ -47,10 +65,16 @@ func RunCLI(w io.Writer, ew io.Writer) int {
 		return 1
 	}
 	hashedPassword := HashPassword(password, salt)
-	fmt.Fprintf(w, "Salt: %s\nPasswd: %s\nHashed passwd: %s\n", salt, password, hashedPassword)
+	p := Password{
+		Password: password,
+		Hash:     hashedPassword,
+		Salt:     salt,
+	}
+	fmt.Fprintf(w, "%s\n", p.ToJSON())
 	return 0
 }
 
+// Main is the entry point to the program.
 func Main() int {
 	return RunCLI(os.Stdout, os.Stderr)
 }

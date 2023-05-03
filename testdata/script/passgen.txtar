@@ -1,0 +1,3 @@
+# generate password data
+exec passgen
+! stderr .

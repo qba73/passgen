@@ -3,12 +3,12 @@
 
 # passgen
 
-`passgen` is a simple cli tool for generating secrets.
+`passgen` is a helper CLI tool for generating passwords.
 
-## Build and install passgen package
+## Build the passgen
 
 ```bash
-go build -o passgen cmd/main.go
+go build -o passgen cmd/passgen/main.go
 ```
 
 ## Usage
@@ -17,7 +17,16 @@ Run passgen:
 
 ```bash
 $ passgen
-Salt: D32pOwYBEBEB2Fp8dO2RbJ32eJ2bR0zf7bmqIjot5M8=
-Passwd: cguergcchsh1d3sc93v0
-Hashed passwd: bc2182e3c63ca4491133db609eeebeea356a1906c7256d7cb59a932ce1946476
+{
+  "salt": "vo4zUAvV7kcPzttGkzHSL79hvWFJt6AJXT1tEu35ja8=",
+  "password": "ch91ipt19fhv0p5d3n20",
+  "hash": "d94e77c02f69966cd1a5111a79c572b19208db7e0ffdb6816f8b4ed189f562be"
+}
+```
+
+Since the `passgen` outputs data in the [JSON](https://www.json.org/json-en.html) format you can pipe the output to [jq](https://stedolan.github.io/jq/):
+
+```bash
+$ passgen | jq .password
+"ch91jul19fhv18u7m1i0"
 ```
