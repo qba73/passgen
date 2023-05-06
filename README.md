@@ -3,24 +3,22 @@
 
 # passgen
 
-`passgen` is a helper CLI tool for generating passwords.
+`passgen` is a Go library and CLI tool for generating passwords.
 
-## Build the passgen
+## Installing the command-line client
 
 ```bash
-go build -o passgen cmd/passgen/main.go
+go install github.com/qba73/passgen/cmd/passgen@latest
 ```
 
-## Usage
-
-Run passgen:
+## Using the command-line client
 
 ```bash
 $ passgen
 {
-  "salt": "vo4zUAvV7kcPzttGkzHSL79hvWFJt6AJXT1tEu35ja8=",
-  "password": "ch91ipt19fhv0p5d3n20",
-  "hash": "d94e77c02f69966cd1a5111a79c572b19208db7e0ffdb6816f8b4ed189f562be"
+  "salt": "bPDkbaVZljXhWJ5tMDY6fwzAO9keqZ3woJNYfd_ZcZw=",
+  "password": "chatr1519fhph7hf1igg",
+  "hash": "66d47fed894fd89cfd94983b95dbb986565fec1e41a8a17b7634e1e4da1f8247"
 }
 ```
 
